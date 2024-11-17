@@ -8,9 +8,9 @@
 - Sign Up Form - Done
 - Form Validation - Done
 - useRef Hook - Done
-- Firebase setup
-- Deploying our app to production
-- Create signup user account
+- Firebase setup - Done
+- Deploying our app to production - Done
+- Create signup user account - Done
 
 # Features
 

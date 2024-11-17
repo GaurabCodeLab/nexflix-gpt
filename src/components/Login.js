@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { useForm } from "react-hook-form";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -13,6 +19,32 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log("form data", data);
+    const { email, password } = data;
+    if (isLogin) {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("login hua", user);
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            text: error?.code ? error?.code : "Something went wrong",
+          });
+        });
+    } else {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("user create hua", user);
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            text: error?.code ? error?.code : "Something went wrong",
+          });
+        });
+    }
   };
   return (
     <div className="bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/03ad76d1-e184-4d99-ae7d-708672fa1ac2/web/IN-en-20241111-TRIFECTA-perspective_149877ab-fcbd-4e4f-a885-8d6174a1ee81_large.jpg')] bg-cover bg-center h-screen">
