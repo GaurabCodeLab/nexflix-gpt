@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { useForm } from "react-hook-form";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import Swal from "sweetalert2";
+import { addUser, removeUser } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -16,15 +21,33 @@ const Login = () => {
     handleSubmit,
     setValue,
   } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(
+          addUser({
+            uid: user?.uid,
+            name: user?.displayName,
+            email: user?.email,
+          })
+        );
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+  }, []);
 
   const onSubmit = (data) => {
-    console.log("form data", data);
-    const { email, password } = data;
+    const { name, email, password } = data;
     if (isLogin) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log("login hua", user);
         })
         .catch((error) => {
           Swal.fire({
@@ -35,8 +58,24 @@ const Login = () => {
     } else {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          const user = userCredential.user;
-          console.log("user create hua", user);
+          updateProfile(auth.currentUser, {
+            displayName: name,
+          })
+            .then(() => {
+              dispatch(
+                addUser({
+                  uid: auth?.currentUser?.uid,
+                  name: auth?.currentUser?.displayName,
+                  email: auth?.currentUser?.email,
+                })
+              );
+            })
+            .catch((error) => {
+              Swal.fire({
+                icon: "error",
+                text: error?.message ? error?.message : "Something went wrong",
+              });
+            });
         })
         .catch((error) => {
           Swal.fire({
@@ -53,7 +92,10 @@ const Login = () => {
         <div className="text-white text-2xl">
           {isLogin ? "Sign In" : "Sign Up"}
         </div>
-        <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="flex flex-col text-white"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           {!isLogin && (
             <div>
               <input

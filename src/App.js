@@ -1,10 +1,8 @@
-import Login from "./components/Login";
+import { route } from "./router";
+import { useRoutes } from "react-router-dom";
 const App = () => {
-  return (
-    <>
-      <Login />
-    </>
-  );
+  const element = useRoutes(route);
+  return <div style={{ overflow: "auto" }}>{element}</div>;
 };
 
 export default App;
