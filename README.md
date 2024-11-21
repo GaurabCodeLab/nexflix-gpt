@@ -15,7 +15,10 @@
 - Create Redux store with userSlice - Done
 - Implemented Sign Out feature - Done
 - Update profile API call from firebase - Done
-- Fetch from TMDB movies
+- unsubscribe to the onAuthStateChanged callback
+- add hardcoded values to the constants file - Done
+- Register TMDP API & create an app and get access token - Done
+- Get Data from TMDB now playing movies list API - Done
 
 # Features
 

@@ -10,11 +10,13 @@ import {
 import { auth } from "../utils/firebase";
 import Swal from "sweetalert2";
 import { addUser, removeUser } from "../redux/userSlice";
-import { useDispatch } from "react-redux";
+import { removeMovies } from "../redux/movieSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const user = useSelector((store) => store.user);
   const {
     register,
     formState: { errors },
@@ -37,10 +39,17 @@ const Login = () => {
         navigate("/browse");
       } else {
         dispatch(removeUser());
+        dispatch(removeMovies());
         navigate("/");
       }
     });
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/browse");
+    }
+  }, [user]);
 
   const onSubmit = (data) => {
     const { name, email, password } = data;
