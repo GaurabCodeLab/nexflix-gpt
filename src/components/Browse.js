@@ -3,6 +3,8 @@ import Header from "./Header";
 import useFeatureMovieVideos from "../hooks/useFeatureMovieVideos";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import { FaPlay } from "react-icons/fa";
+import { IoIosInformationCircleOutline } from "react-icons/io";
 
 const Browse = () => {
   const movieVideos = useSelector((store) => store.movie?.featureMovieVideos);
@@ -24,12 +26,20 @@ const Browse = () => {
         <div className="absolute text-white w-1/3 top-1/2 translate-y-[-50%] ps-8">
           <h1 className="text-3xl font-bold">{featureMovie[0]?.title}</h1>
           <p>{featureMovie[0]?.overview}</p>
-          <button className="bg-white text-black py-2 px-10 rounded-lg me-4 mt-6">
-            Play
-          </button>
-          <button className="bg-gray-500 py-2 px-8 rounded-lg">
-            More Info
-          </button>
+          <div className="flex gap-4 mt-6">
+            <button className="bg-white text-black py-2 px-10 rounded-lg flex">
+              <div className="self-center me-2">
+                <FaPlay />
+              </div>
+              Play
+            </button>
+            <button className="bg-gray-500 py-2 px-10 rounded-lg flex">
+              <div className="self-center me-2 text-lg">
+                <IoIosInformationCircleOutline />
+              </div>
+              More Info
+            </button>
+          </div>
         </div>
         <iframe
           className="w-screen aspect-video"
