@@ -7,3 +7,12 @@ export const TMDP_ACCESS_TOKEN =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OTY1MzQxYjJhMDFjZTlkMTA0ZTdhNWI2MmM5Yjg0NCIsIm5iZiI6MTczMjE3NjU0Mi4xODg2NTk0LCJzdWIiOiI2NzNlZTk1ODM3NGE2OTk1Mjc4OTc5MjYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.MSE9_35HyWnwrxarHXpvNirEq8e-4cti2g6CmH7h918";
 export const NOW_PLAYING_MOVIES_API =
   "https://api.themoviedb.org/3/movie/now_playing";
+export const USER_AVTAR =
+  "https://occ-0-6247-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdpkabKqQAxyWzo6QW_ZnPz1IZLqlmNfK-t4L1VIeV1DY00JhLo_LMVFp936keDxj-V5UELAVJrU--iUUY2MaDxQSSO-0qw.png?r=e6e";
+export const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization: `Bearer ${TMDP_ACCESS_TOKEN}`,
+  },
+};

@@ -13,6 +13,7 @@ import { addUser, removeUser } from "../redux/userSlice";
 import { removeMovies } from "../redux/movieSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -96,7 +97,8 @@ const Login = () => {
   };
   return (
     <div className="bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/03ad76d1-e184-4d99-ae7d-708672fa1ac2/web/IN-en-20241111-TRIFECTA-perspective_149877ab-fcbd-4e4f-a885-8d6174a1ee81_large.jpg')] bg-cover bg-center h-screen">
-      <img src={LOGO_URL} alt="logo" className="absolute h-20 left-[10%]" />
+      {/* <img src={LOGO_URL} alt="logo" className="absolute h-20 left-[10%]" /> */}
+      <Header />
       <div className="flex justify-center p-8 w-1/3 rounded-md flex-col items-center bg-[rgba(0,0,0,0.8)] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
         <div className="text-white text-2xl">
           {isLogin ? "Sign In" : "Sign Up"}
