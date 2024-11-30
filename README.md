@@ -22,11 +22,17 @@
 - Custom hook for nowPlaying movies - Done
 - create movieSlice - Done
 - Update store with movies Data - Done
-- Planning for mainContainer and secondaryContainer
-- Fetch data for Tailer video
-- Update store with Tailer video Data
-- Embedded youtube video and make it autoplay and mute
-- Tailwind classes to make main container look awesome
+- Planning for mainContainer and secondaryContainer - Done
+- Fetch data for Tailer video - Done
+- Update store with Tailer video Data - Done
+- Embedded youtube video and make it autoplay and mute - Done
+- Tailwind classes to make main container look awesome - Done
+- Build secondary container - Done
+- Build movie list - Done
+- Build movie card - Done
+- TMDB Image CDN URL - Done
+- Made the Browse page amazing with Tailwind css - Done
+- usePopularMovies custom hook - Done
 
 # Features
 

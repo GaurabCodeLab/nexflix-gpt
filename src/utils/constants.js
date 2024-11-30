@@ -16,3 +16,9 @@ export const options = {
     Authorization: `Bearer ${TMDP_ACCESS_TOKEN}`,
   },
 };
+export const POSTER_BASE_URL = "https://image.tmdb.org/t/p/w200/";
+export const POPULAR_MOVIES_API = "https://api.themoviedb.org/3/movie/popular";
+export const TOP_RATED_MOVIES_API =
+  "https://api.themoviedb.org/3/movie/top_rated";
+export const UPCOMING_MOVIES_API =
+  "https://api.themoviedb.org/3/movie/upcoming";

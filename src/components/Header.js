@@ -26,7 +26,7 @@ const Header = () => {
       });
   };
   return (
-    <div className="flex justify-between items-center bg-black">
+    <div className="flex justify-between items-center bg-gradient-to-b from-black to-transparent">
       <img className="h-20" src={LOGO_URL} alt="logo" />
       {user && (
         <div className="flex cursor-pointer" onClick={handleClick}>

@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { FaPlay } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
+import SecondaryContainer from "./Secondary";
 
 const Browse = () => {
   const movieVideos = useSelector((store) => store.movie?.featureMovieVideos);
@@ -15,14 +16,16 @@ const Browse = () => {
 
   useEffect(() => {
     if (movieVideos.length) {
-      setTrailerId(movieVideos?.find((value) => value?.type === "Trailer").key);
+      setTrailerId(
+        movieVideos?.find((value) => value?.type === "Trailer")?.key
+      );
     }
   }, [movieVideos]);
 
   return (
-    <div className="bg-gradient-to-r from-black to-transparent">
+    <div>
       <Header />
-      <div className="relative bg-gradient-to-r from-black to-transparent">
+      <div className="bg-white">
         <div className="absolute text-white w-1/3 top-1/2 translate-y-[-50%] ps-8">
           <h1 className="text-3xl font-bold">{featureMovie[0]?.title}</h1>
           <p>{featureMovie[0]?.overview}</p>
@@ -42,12 +45,13 @@ const Browse = () => {
           </div>
         </div>
         <iframe
-          className="w-screen aspect-video"
+          className="w-screen aspect-video bg-white"
           src={`https://www.youtube.com/embed/${trailerId}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&autohide=1`}
           allow="autoplay"
-          frameborder="0"
+          frameBorder="0"
         ></iframe>
       </div>
+      <SecondaryContainer />
     </div>
   );
 };
