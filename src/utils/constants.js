@@ -22,3 +22,17 @@ export const TOP_RATED_MOVIES_API =
   "https://api.themoviedb.org/3/movie/top_rated";
 export const UPCOMING_MOVIES_API =
   "https://api.themoviedb.org/3/movie/upcoming";
+export const SUPPORTED_LANGUAGE = [
+  {
+    identifier: "en",
+    name: "English",
+  },
+  {
+    identifier: "hindi",
+    name: "Hindi",
+  },
+  {
+    identifier: "spanish",
+    name: "Spanish",
+  },
+];

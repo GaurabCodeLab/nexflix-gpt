@@ -4,7 +4,7 @@ const MovieCard = ({ posterPath }) => {
   return (
     <img
       src={POSTER_BASE_URL + posterPath}
-      className="rounded-lg cursor-pointer hover:scale-110 transition-all"
+      className="rounded-lg cursor-pointer hover:scale-110 transition-all border"
     />
   );
 };
