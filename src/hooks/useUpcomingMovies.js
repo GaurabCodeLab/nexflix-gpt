@@ -14,7 +14,6 @@ const useUpcomingMovies = () => {
           throw new Error("Something went wrong");
         }
         const result = await response.json();
-        console.log("result hai", result);
         dispatch(addUpcomingMovies(result?.results));
       } catch (error) {
         Swal.fire({

@@ -51,7 +51,9 @@ const Header = () => {
             onChange={handleChange}
           >
             {SUPPORTED_LANGUAGE.map((value) => (
-              <option value={value.identifier}>{value.name}</option>
+              <option value={value.identifier} key={value.identifier}>
+                {value.name}
+              </option>
             ))}
           </select>
           <button

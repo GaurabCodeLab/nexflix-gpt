@@ -26,4 +26,9 @@ export const CONTENT = {
     hindi: "खाता बंद",
     spanish: "Cerrar sesión",
   },
+  errorValue: {
+    en: "Search value is required",
+    hindi: "खोज मान आवश्यक है",
+    spanish: "El valor de búsqueda es obligatorio",
+  },
 };

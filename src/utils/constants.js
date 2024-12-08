@@ -36,3 +36,6 @@ export const SUPPORTED_LANGUAGE = [
     name: "Spanish",
   },
 ];
+export const GEMINI_API = "AIzaSyBHzeU4fla0TkTZOJ9Q-0OrvqpyY0n84Y8";
+export const MOVIE_SEARCH_API =
+  "https://api.themoviedb.org/3/search/movie?query=";
