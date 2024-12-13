@@ -6,7 +6,7 @@ import UpcomingMovies from "./UpcomingMovies";
 const SecondaryContainer = () => {
   return (
     <>
-      <div className="bg-black text-white -mt-40 px-3">
+      <div className="bg-black text-white sm:-mt-20 md:-mt-40 px-3">
         <h2 className="text-2xl font-bold pb-4">Now Playing</h2>
         <NowPlaying />
       </div>

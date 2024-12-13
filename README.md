@@ -36,6 +36,15 @@
 - GPT Search Page - Done
 - GPT Search Bar - Done
 - Multilanguage feature in our App - Done
+- Get openai Api key - Done
+- Gpt search api call - Done
+- Fetched Gpt Movies Suggestion from TMDB - Done
+- Created GptSlice and added data - Done
+- Reused movieList component to make movie suggestion container - Done
+- Memoization - Done
+- Added .env file - Done
+- Added .env file to gitignore - Done
+- Made our site responsive - Done
 
 # Features
 

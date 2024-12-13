@@ -32,10 +32,12 @@ const Browse = () => {
       ) : (
         <>
           <div className="bg-white">
-            <div className="absolute text-white w-1/3 top-1/2 translate-y-[-50%] ps-8">
-              <h1 className="text-3xl font-bold">{featureMovie[0]?.title}</h1>
-              <p>{featureMovie[0]?.overview}</p>
-              <div className="flex gap-4 mt-6">
+            <div className="absolute text-white sm:w-full md:w-1/3 top-1/3 md:top-1/2 translate-y-[-50%] ps-2 md:ps-8">
+              <h1 className="md:text-3xl text-xl font-bold">
+                {featureMovie[0]?.title}
+              </h1>
+              <p className="hidden md:block">{featureMovie[0]?.overview}</p>
+              <div className="flex gap-4 mt-2 md:mt-6">
                 <button className="bg-white text-black py-2 px-10 rounded-lg flex">
                   <div className="self-center me-2">
                     <FaPlay />

@@ -28,6 +28,9 @@ const movieSlice = createSlice({
     removeMovies: (state) => {
       state.movies = [];
       state.featureMovieVideos = [];
+      state.topRatedMovies = [];
+      state.upcomingMovies = [];
+      state.popularMovies = [];
     },
   },
 });

@@ -42,12 +42,12 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center bg-gradient-to-b from-black to-transparent">
-      <img className="h-20" src={LOGO_URL} alt="logo" />
+    <div className="flex justify-between items-center bg-black max-w-[100vw]">
+      <img className="h-20 w-28 md:w-auto" src={LOGO_URL} alt="logo" />
       {user && (
         <div className="flex cursor-pointer">
           <select
-            className="bg-gray-500 text-white rounded-md me-4 px-1"
+            className="bg-gray-500 text-white rounded-md me-2 md:me-4 px-1"
             onChange={handleChange}
           >
             {SUPPORTED_LANGUAGE.map((value) => (
@@ -57,7 +57,7 @@ const Header = () => {
             ))}
           </select>
           <button
-            className="bg-blue-700 me-4 py-2 px-4 rounded-lg text-white self-center"
+            className="bg-blue-700 me-4 py-2 px-2 md:px-4 rounded-lg text-white self-center"
             onClick={handleGpt}
           >
             {showGpt
@@ -65,8 +65,12 @@ const Header = () => {
               : CONTENT.headerBtn.gpt[lang]}
           </button>
           <div className="flex" onClick={handleClick}>
-            <img src={USER_AVTAR} className="h-10 pe-4" alt="user-avtar" />
-            <div className="text-white pt-2 pe-4 font-bold">
+            <img
+              src={USER_AVTAR}
+              className="h-10 pe-4 hidden md:inline-block"
+              alt="user-avtar"
+            />
+            <div className="text-white pt-2 pe-0 md:pe-4 font-bold">
               {CONTENT.singOut[lang]}
             </div>
           </div>
