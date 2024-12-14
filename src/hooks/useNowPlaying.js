@@ -8,8 +8,6 @@ const useNowPlaying = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const getNowPlayingMovies = async () => {
-      console.log("movie api called");
-
       try {
         const response = await fetch(NOW_PLAYING_MOVIES_API, options);
         if (!response.ok) {
